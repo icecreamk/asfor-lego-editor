@@ -16,6 +16,7 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import { v4 as uuidv4 } from "uuid";
+import LText from './LText.vue'
 // import StyledUploader from "../components/StyledUploader.vue";
 import { ComponentData } from "../store/editor.ts";
 import { TextComponentProps } from "lego-bricks";
@@ -31,6 +32,7 @@ export default defineComponent({
   emits: ["on-item-click"],
   name: "components-list",
   components: {
+    LText,
     // StyledUploader,
   },
   setup(props, context) {

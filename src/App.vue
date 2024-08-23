@@ -1,6 +1,5 @@
 <script setup lang="ts">
 </script>
-
 <template>
   <div id="app">
     <RouterLink :to="{ path: '/' }"> home </RouterLink>
