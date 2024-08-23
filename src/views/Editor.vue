@@ -7,11 +7,13 @@
           :key="item.id"
           :id="item.id"
           @setActive="setActive"
+          :isActive="item.id === currentElement?.id"
         >
           <component :is="item.name" v-bind="item.props"></component>
         </edit-wrapper>
       </div>
       <div>
+        <PropsTable v-if="currentElement && currentElement.props" :props="currentElement.props" @change="handleChange"></PropsTable>
         <pre>
           {{ currentElement && currentElement.props }}
         </pre>
@@ -27,12 +29,15 @@ import defaultTextTemplates from "../defaultTemplates.ts";
 import { GlobalDataProps } from "../store/index.ts";
 import { ComponentData } from "../store/editor.ts";
 import LText from "../components/LText.vue";
+import PropsTable from "../components/PropsTable.vue";
+
 
 export default defineComponent({
   components: {
     ComponentsList,
     EditWrapper,
-    LText
+    LText,
+    PropsTable
   },
   setup() {
     const store = useStore<GlobalDataProps>();
@@ -48,10 +53,15 @@ export default defineComponent({
     const setActive = (id: string) => {
       store.commit("setActive", id);
     };
+    const handleChange = (e: any) => {
+      console.log(e)
+      store.commit('updateComponent', e)
+    }
     return {
       components,
       addItem,
       setActive,
+      handleChange,
       currentElement,
       defaultTextTemplates,
     };

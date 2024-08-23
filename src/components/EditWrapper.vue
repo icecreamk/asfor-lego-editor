@@ -1,5 +1,9 @@
 <template>
-  <div class="edit-wrapper" @click="onItemClick(id)">
+  <div
+    class="edit-wrapper"
+    @click="onItemClick(id)"
+    :class="{ active: isActive }"
+  >
     <slot></slot>
   </div>
 </template>
@@ -10,17 +14,20 @@ export default defineComponent({
   props: {
     id: {
       type: String,
-      required: true
+      required: true,
+    },
+    isActive: {
+      type: Boolean,
+      default: false,
     },
   },
-  emits: ['set-active'],
+  emits: ["set-active"],
   setup(props, context) {
     const onItemClick = (id: string) => {
-      context.emit('set-active', id)
-    }
+      context.emit("set-active", id);
+    };
     return {
       onItemClick,
-      ...props,
     };
   },
 });
@@ -34,5 +41,8 @@ export default defineComponent({
 
 .edit-wrapper:hover {
   border: 1px solid #409eff;
+}
+.edit-wrapper.active {
+  border: 1px solid #ffc940;
 }
 </style>
