@@ -29,7 +29,7 @@ import defaultTextTemplates from "../defaultTemplates.ts";
 import { GlobalDataProps } from "../store/index.ts";
 import { ComponentData } from "../store/editor.ts";
 import LText from "../components/LText.vue";
-import PropsTable from "../components/PropsTable.vue";
+import PropsTable from "../components/PropsTable.tsx";
 
 
 export default defineComponent({

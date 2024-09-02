@@ -3,6 +3,7 @@
     "composite": true,
     "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
     "target": "ES2020",
+    
     "useDefineForClassFields": true,
     "module": "ESNext",
     "lib": [
@@ -21,6 +22,8 @@
     "jsx": "preserve",
     /* Linting */
     "strict": true,
+    // "jsx": "preserve",
+    "jsxImportSource": "vue",
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true
